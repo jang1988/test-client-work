@@ -1,0 +1,54 @@
+.product-list {
+    width: 94%;
+    max-width: 800px;
+    margin: 0 auto; 
+
+    &__title {
+        margin-bottom: 10px;
+    }
+
+    &__icon-container {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        gap: 10px;
+    }
+
+    &__info {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    &__name {
+        margin: 0;
+    }
+
+    &__description {
+        margin: 0;
+    }
+
+    &__photo img {
+        max-width: 20px;
+        max-height: auto; /* Автоматический подбор высоты */
+    }
+}

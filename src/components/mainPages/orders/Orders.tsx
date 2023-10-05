@@ -101,7 +101,7 @@ const Orders: React.FC = () => {
                 {orders.map((order: Order) => (
                     <div className="order" key={order.id}>
                         <h3>{order.title}</h3>
-                        <p>Description: {order.description}</p>
+                        <p className="order__desc">Description: {order.description}</p>
                         <div className="products">
                             <button
                                 className="orders__productsList"
@@ -127,11 +127,12 @@ const Orders: React.FC = () => {
                     <div className="productList">
                         <div
                             className="productList__close"
-                            onClick={() => setShowProductList(false)}
+                            onClick={() => setShowProductList(!showProductList)}
                         >
                             &times;
                         </div>
                         <ProductList
+                            orderNumber={selectedOrderId}
                             products={products.filter(
                                 (product) => product.order === Number(selectedOrderId),
                             )}

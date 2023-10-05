@@ -8,11 +8,11 @@
     backdrop-filter: blur(10px);
     z-index: 999;
     display: none;
-  }
-  
-  .overlay.active {
+}
+
+.overlay.active {
     display: block;
-  }
+}
 
 .orders__wrapper {
     display: flex;
@@ -25,9 +25,10 @@
 }
 
 .productList {
-    width: 50%;
+    width: 400px;
     position: fixed;
-    top: 100px;
+    top: 150px;
+    right: 45%;
     background-color: white;
     box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -35,12 +36,20 @@
     z-index: 1;
     border: 1px solid #ccc;
     overflow-y: auto;
-    transform: translateX(100%); 
+    transform: translateX(100%);
     transition: transform 0.3s;
 }
 
 .orders.half {
-    width: 50%;
+    width: 40%;
+    .order {
+        h3 {
+            display: none;
+        }
+        .order__desc {
+            display: none;
+        }
+    }
 }
 
 .productList.show {
@@ -48,7 +57,10 @@
 }
 
 .productList__close {
-    cursor: pointer; 
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top:0;
 }
 
 .order {
