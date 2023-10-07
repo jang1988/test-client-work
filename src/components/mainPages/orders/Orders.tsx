@@ -70,12 +70,22 @@ const Orders: React.FC = () => {
     const { products } = useSelector((state: RootState) => state.products);
     const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
     const [showProductList, setShowProductList] = useState(false);
-    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
 
     const toggleProductList = (orderId: string) => {
-        setSelectedOrderId(selectedOrderId === orderId ? null : orderId);
-        setShowProductList((prevShowProductList) => !prevShowProductList);
+        if (selectedOrderId === orderId) {
+            setSelectedOrderId(null);
+            setShowProductList(false);
+        } else {
+            setSelectedOrderId(orderId);
+            setShowProductList(true);
+        }
     };
+
+    const clickClose = () => {
+        setShowProductList(!showProductList)
+        setSelectedOrderId(null)
+    }
 
     const toggleDeleteModal = () => {
         setShowDeleteModal((prevShowDeleteModal) => !prevShowDeleteModal);
@@ -127,7 +137,7 @@ const Orders: React.FC = () => {
                     <div className="productList">
                         <div
                             className="productList__close"
-                            onClick={() => setShowProductList(!showProductList)}
+                            onClick={clickClose}
                         >
                             &times;
                         </div>
